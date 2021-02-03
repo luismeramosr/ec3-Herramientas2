@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "dotnet_core_api",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/propietario/list": {
+      "get": {
+        "tags": [
+          "Propietarios"
+        ],
+        "parameters": [
+          {
+            "name": "initial",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Propietario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Propietario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Propietario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/propietario/query": {
+      "get": {
+        "tags": [
+          "Propietarios"
+        ],
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Papeleta"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Papeleta"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Papeleta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Propietario": {
+        "type": "object",
+        "properties": {
+          "dnipro": {
+            "type": "string",
+            "nullable": true
+          },
+          "nompro": {
+            "type": "string",
+            "nullable": true
+          },
+          "dirpro": {
+            "type": "string",
+            "nullable": true
+          },
+          "eliminado": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Papeleta": {
+        "type": "object",
+        "properties": {
+          "nropap": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nropla": {
+            "type": "string",
+            "nullable": true
+          },
+          "codinf": {
+            "type": "string",
+            "nullable": true
+          },
+          "idpol": {
+            "type": "string",
+            "nullable": true
+          },
+          "papfecha": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pagado": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecpago": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "eliminado": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

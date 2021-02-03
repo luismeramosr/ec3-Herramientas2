@@ -1,0 +1,27 @@
+<h1>Papeletas por pagar del propietario</h1>
+<h1>
+  <strong>{{ data[0].propietario.nompro }}</strong>
+</h1>
+<a [routerLink]="['/consulta']" class="btn btn-primary">Regresar</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Papeleta</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Infracción</th>
+      <th scope="col">Fecha Papeleta</th>
+      <th scope="col">Importe</th>
+      <th scope="col">Pagado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of data">
+      <th>{{ e.papeleta.nropap }}</th>
+      <th>{{ e.vehiculo.nropla }}</th>
+      <th>{{ e.infraccione.desinf }}</th>
+      <th>{{ e.papeleta.papfecha.substring(10, -1) }}</th>
+      <th>{{ e.infraccione.importe | currency: 'S/ '}}</th>
+      <th>{{ e.papeleta.pagado }}</th>
+    </tr>
+  </tbody>
+</table>

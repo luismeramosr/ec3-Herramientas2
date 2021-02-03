@@ -1,0 +1,32 @@
+<h1 class="text-center">Consulta de papeletas</h1>
+<div class="card text-center">
+    <form [formGroup]="consultaForm">
+      <input type="text" class="form-control inicial" id="inicial"
+              formControlName="inicial"
+              name="inicial"
+              required
+              maxlength=1>
+      <div *ngIf="inicial.touched && inicial.errors?.required">
+          <span class="badge badge-danger">Debe ingresar el campo</span>
+      </div>
+      <button class="btn btn-primary add-btn" (click)="consultar()">Consultar</button>
+    </form>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">DNI Propietario</th>
+            <th scope="col">Nombre del Propietario</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of propietarios">
+                <th>{{p.dnipro}}</th>
+                <th>{{p.nompro}}</th>
+                <td class="ops">
+                    <a class="btn btn-success" [routerLink]="['/consulta/papeletas', p.dnipro]">Ver papeletas</a>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</div>
